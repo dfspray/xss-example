@@ -27,11 +27,12 @@ def home():
 """
     
     for m in Message.select():
+        quote = m.content.replace('<', '&lt;').replace('>', '&gt;')
         body += """
 <div class="message">
 {}
 </div>
-""".format(m.content)
+""".format(quote)
 
     return body 
 
